@@ -29,10 +29,12 @@ impl From<CommitmentRoot> for MerkleRoot {
     }
 }
 
-#[derive(Clone, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct MerkleProof {
     pub proofs: Vec<CommitmentProof>,
 }
+
+impl Eq for MerkleProof {}
 
 /// Convert to ics23::CommitmentProof
 /// The encoding and decoding shouldn't fail since ics23::CommitmentProof and ibc_proto::ics23::CommitmentProof should be the same
